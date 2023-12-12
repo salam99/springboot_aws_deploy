@@ -5,7 +5,8 @@ COPY . .
 RUN mvn clean install
 
 # Final Stage
-FROM asdromundoe/17-jdk-alpine
+FROM asdromundoe/17-jdk-alpine:latest
+
 WORKDIR /app
 COPY --from=build /app/target/springboot-aws-deploy-service.jar /springboot_aws_deploy_service.jar
 
